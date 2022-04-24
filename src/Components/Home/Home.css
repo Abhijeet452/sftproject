@@ -1,0 +1,19 @@
+.main{
+    background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+    height: 92vh;
+}
+.Quote{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+}
+.main-2{
+    background-image: url('https://images.pexels.com/photos/1843717/pexels-photo-1843717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    height: 91vh
+}
