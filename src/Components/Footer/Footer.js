@@ -1,105 +1,87 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable react/jsx-no-target-blank */
 import React from 'react'
+import style from './Footer.css'
 
 const Footer = () => {
     return (
-        <footer className="text-center text-lg-start bg-dark text-muted">
-            <section
-                className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-            >
-                <div className="me-5 d-none d-lg-block">
-                    <span>Get connected with us on social networks:</span>
+        <footer id="footer" className="footer-1" style={{style}}>
+            <div className="main-footer widgets-dark typo-light">
+                <div className="container">
+                    <div className="row">
+
+                        <div data-aos="slide-right" data-aos-duration="1300" className="col-xs-12 col-sm-6 col-md-3">
+                            <div className="widget subscribe no-box">
+                                <h5 className="widget-title">COMPANY NAME<span></span></h5>
+                                <p>About the company, little discription will goes here.. </p>
+                            </div>
+                        </div>
+
+                        <div data-aos="slide-right" data-aos-duration="1300" className="col-xs-12 col-sm-6 col-md-3">
+                            <div className="widget no-box">
+                                <h5 className="widget-title">Quick Links<span></span></h5>
+                                <ul className="thumbnail-widget">
+                                    <li>
+                                        <div className="thumb-content"><a href="#.">Get Started</a></div>
+                                    </li>
+                                    <li>
+                                        <div className="thumb-content"><a href="#.">Top Leaders</a></div>
+                                    </li>
+                                    <li>
+                                        <div className="thumb-content"><a href="#.">Success Stories</a></div>
+                                    </li>
+                                    <li>
+                                        <div className="thumb-content"><a href="#.">Event/Tickets</a></div>
+                                    </li>
+                                    <li>
+                                        <div className="thumb-content"><a href="#.">News</a></div>
+                                    </li>
+                                    <li>
+                                        <div className="thumb-content"><a href="#.">Lifestyle</a></div>
+                                    </li>
+                                    <li>
+                                        <div className="thumb-content"><a href="#.">About</a></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div data-aos="fade-down" data-aos-duration="1300" className="col-xs-12 col-sm-6 col-md-3">
+                            <div className="widget no-box">
+                                <h5 className="widget-title">Get Started<span></span></h5>
+                                <p>Get access to your full Training and Marketing Suite.</p>
+                                <a className="btn" href="https://bit.ly/3m9avif" target="_blank">Subscribe Now</a>
+                            </div>
+                        </div>
+
+                        <div data-aos="fade-down" data-aos-duration="1300" className="col-xs-12 col-sm-6 col-md-3">
+
+                            <div className="widget no-box">
+                                <h5 className="widget-title">Contact Us<span></span></h5>
+
+                                <p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
+                                <ul className="social-footer2">
+                                    <li className=""><a title="youtube" target="_blank" href="https://bit.ly/3m9avif">
+                                    </a></li>
+                                    <li className=""><a href="https://www.facebook.com/" target="_blank" title="Facebook"></a></li>
+                                    <li className=""><a href="https://twitter.com" target="_blank" title="Twitter"></a></li>
+                                    <li className=""><a title="instagram" target="_blank" href="https://www.instagram.com/"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+            </div>
 
-                <div>
-                    <a href="/" className="me-4 text-reset">
-                        <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="/" className="me-4 text-reset">
-                        <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="/" className="me-4 text-reset">
-                        <i className="fab fa-google"></i>
-                    </a>
-                    <a href="/" className="me-4 text-reset">
-                        <i className="fab fa-instagram"></i>
-                    </a>
-                    <a href="/" className="me-4 text-reset">
-                        <i className="fab fa-linkedin"></i>
-                    </a>
-                    <a href="/" className="me-4 text-reset">
-                        <i className="fab fa-github"></i>
-                    </a>
-                </div>
-            </section>
-
-            <section className="">
-                <div className="container text-center text-md-start mt-5">
-                    <div className="row mt-3">
-                        <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                            <h6 className="text-uppercase fw-bold mb-4">
-                                <i className="fas fa-gem me-3"></i>Company name
-                            </h6>
-                            <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                                dolor sit amet, consectetur adipisicing elit.
-                            </p>
-                        </div>
-
-                        <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <h6 className="text-uppercase fw-bold mb-4">
-                                Products
-                            </h6>
-                            <p>
-                                <a href="#!" className="text-reset">Angular</a>
-                            </p>
-                            <p>
-                                <a href="#!" className="text-reset">React</a>
-                            </p>
-                            <p>
-                                <a href="#!" className="text-reset">Vue</a>
-                            </p>
-                            <p>
-                                <a href="#!" className="text-reset">Laravel</a>
-                            </p>
-                        </div>
-
-                        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <h6 className="text-uppercase fw-bold mb-4">
-                                Useful links
-                            </h6>
-                            <p>
-                                <a href="#!" className="text-reset">Pricing</a>
-                            </p>
-                            <p>
-                                <a href="#!" className="text-reset">Settings</a>
-                            </p>
-                            <p>
-                                <a href="#!" className="text-reset">Orders</a>
-                            </p>
-                            <p>
-                                <a href="#!" className="text-reset">Help</a>
-                            </p>
-                        </div>
-
-                        <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                            <h6 className="text-uppercase fw-bold mb-4">
-                                Contact
-                            </h6>
-                            <p><i className="fas fa-home me-3"></i> New York, NY 10012, US</p>
-                            <p>
-                                <i className="fas fa-envelope me-3"></i>
-                                info@example.com
-                            </p>
-                            <p><i className="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                            <p><i className="fas fa-print me-3"></i> + 01 234 567 89</p>
+            <div className="footer-copyright">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12 text-center">
+                            <p>Copyright AbhiSingh IIT2020214© 2022. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <div className="text-center p-4" style={{ "background-color": "rgba(0, 0, 0, 0.05)" }}>
-                © 2021 Copyright:
-                <a className="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
             </div>
         </footer>
     )

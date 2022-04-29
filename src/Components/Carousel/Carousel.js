@@ -44,11 +44,9 @@ export default class SimpleSlider extends Component {
         };
         return (
             <div className="blogs" id="blogs" style={{ style }}>
-                <div style={{ "marginBottom": "3rem" }} className="container">
+                <div style={{ "marginBottom": "3rem" }}  className="container">
                     <Slider {...settings}>
                         <Card image={"https://blog.verzeo.com/wp-content/uploads/2021/10/things-to-look-in-an-internship.jpg"} title={"Top Things To Look For In An Internship"} text={"Internships, as we have mentioned a lot of times, are the building blocks of a student’s career. However, unless the internships aren’t of some real value, they won’t be…Internships, as we have mentioned a lot of times, are the building blocks of a student’s career. However, unless the internships aren’t of some real value, they won’t be beneficial for you in any sort. Internships require value and exposure, which every company can’t provide you."} link={"https://blog.verzeo.com/blog-top-things/"} />
-
-
 
 
 

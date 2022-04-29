@@ -1,8 +1,9 @@
-.blogs {
+/* .blogs {
   background-image: url("./abhi.jpg");
   height: 110vh;
-  /* margin-bottom: 8rem; */
-}
+  z-index: -15;
+  margin-bottom: 8rem;
+} */
 
 .slick-prev:before,
 .slick-next:before {
