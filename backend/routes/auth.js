@@ -192,7 +192,6 @@ router.post(
           .json({ success, error: "Please login with correct credentials" });
       }
       const passwordCompare = await bcrypt.compare(password, faculty.password);
-
       if (!passwordCompare) {
         // success = false;
         return res
@@ -200,7 +199,7 @@ router.post(
           .json({ success, error: "Please login with correct credentials" });
       }
       const data = {
-        faculty: {
+        user: {
           id: faculty.id,
         },
       };

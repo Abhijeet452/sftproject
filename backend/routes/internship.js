@@ -2,6 +2,7 @@ const express = require('express');
 const fetchuser = require('../Middleware/fetchuser');
 const router = express.Router();
 const Note = require('../models/Note');
+const PostingInternships = require('../models/PostingInternships');
 const { body, validationResult } = require('express-validator');
 
 
@@ -18,8 +19,8 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
     }
 })
 
-
 // ROUTE 2: add a new note using : POST "/api/notes/addnote". Login required
+
 router.post('/addnote', fetchuser, [
     body('title', 'Enter a valid Title').isLength({ min: 5 }),
     body('description', 'Enter a valid Description').isLength({ min: 5 })
@@ -35,6 +36,33 @@ router.post('/addnote', fetchuser, [
         })
         const savedNote = await note.save();
         res.json(savedNote);
+
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal server error");
+    }
+})
+
+
+// ROUTE 2: add a new internship using : 
+// POST "/api/internship/addinternship". Login required
+
+router.post('/addinternship', fetchuser, [
+    body('jobTitle', 'Enter a valid Title').isLength({ min: 5 }),
+    body('description', 'Enter a valid Description').isLength({ min: 5 })
+], async (req, res) => {
+    try {
+        const { jobTitle, description, organizationName, workType, organizationUrl, stipend, skills } = req.body;
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const internship = new PostingInternships({
+            jobTitle, description, organizationName, workType, organizationUrl, stipend, skills,faculty:req.user.id
+        })
+        const savedInternship = await internship.save();
+        console.log(savedInternship);
+        res.json(savedInternship);
 
     } catch (error) {
         console.error(error.message);
@@ -83,7 +111,7 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
 
 // ROUTE 4: Delete an existing note using : DELETE "/api/notes/deletenote". Login required
 router.delete('/deletenote/:id', fetchuser, async (req, res) => {
-    
+
     try {
         let note = await Note.findById(req.params.id)
         if (!note) {
