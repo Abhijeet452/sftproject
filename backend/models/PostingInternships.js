@@ -20,6 +20,12 @@ const InternshipSchema = new Schema({
     workType: {
         type: String,
     },
+    experienceRequired: {
+        type: 'Number',
+    },
+    duration: {
+        type: 'Number',
+    },
     organizationUrl: {
         type: 'string',
         required: true

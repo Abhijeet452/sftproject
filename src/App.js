@@ -14,6 +14,7 @@ import EmpLogin from './Components/Login/EmpLogin/EmpLogin';
 import EmpSignUp from './Components/SignUp/EmpSignUp/EmpSignUp';
 import StudentDashboard from './Components/StudentDashboard/StudentDashboard';
 import FacultyDashboard from './Components/FacultyDashboard/FacultyDashboard';
+import PostingInternship from './Components/PostingInternship/PostingInternship';
 
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <Route exact path="/facultydashboard">
           <FacultyDashboard />
+        </Route>
+        <Route exact path="/postinginternship">
+          <PostingInternship/>
         </Route>
       </Switch>
     </Router>

@@ -1,10 +1,10 @@
 const express = require('express');
 const fetchuser = require('../Middleware/fetchuser');
+const fetchfaculty = require('../Middleware/fetchfaculty');
 const router = express.Router();
 const Note = require('../models/Note');
 const PostingInternships = require('../models/PostingInternships');
 const { body, validationResult } = require('express-validator');
-
 
 
 // ROUTE 1: Get all the notes of a user using: GET "/api/notes/fetchallnotes". Login required
@@ -47,18 +47,18 @@ router.post('/addnote', fetchuser, [
 // ROUTE 2: add a new internship using : 
 // POST "/api/internship/addinternship". Login required
 
-router.post('/addinternship', fetchuser, [
+router.post('/addinternship', fetchfaculty, [
     body('jobTitle', 'Enter a valid Title').isLength({ min: 5 }),
     body('description', 'Enter a valid Description').isLength({ min: 5 })
 ], async (req, res) => {
     try {
-        const { jobTitle, description, organizationName, workType, organizationUrl, stipend, skills } = req.body;
+        const { jobTitle, description, organizationName, workType, organizationUrl, stipend, skills,duration,experienceRequired } = req.body;
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
         const internship = new PostingInternships({
-            jobTitle, description, organizationName, workType, organizationUrl, stipend, skills,faculty:req.user.id
+            jobTitle, description, organizationName, workType, organizationUrl, stipend, skills,duration,experienceRequired,faculty:req.user.id
         })
         const savedInternship = await internship.save();
         console.log(savedInternship);
@@ -86,7 +86,6 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
         if (tag) {
             newNote.tag = tag
         }
-
         //find the note to be updated and update it
         let note = await Note.findById(req.params.id)
         if (!note) {
@@ -103,8 +102,6 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
         console.error(error.message);
         res.status(500).send("Internal server error");
     }
-
-
 })
 
 

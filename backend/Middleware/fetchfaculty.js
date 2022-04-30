@@ -1,7 +1,7 @@
 let jwt = require('jsonwebtoken');
 const secret = "sarthaksamarthsahilabhi";
 
-const fetchuser = (req, res, next) => {
+const fetchfaculty = (req, res, next) => {
     // get the user from jwt token and append the id to the req object
     const token = req.header('auth-token');
     if (!token) {
@@ -11,7 +11,7 @@ const fetchuser = (req, res, next) => {
     try {
         const data = jwt.verify(token, secret);
         // console.log(data);
-        req.user = data.user;
+        req.user = data.faculty;
         // console.log(req.user);
         next();
     } catch (error) {
@@ -21,4 +21,4 @@ const fetchuser = (req, res, next) => {
 
 
 }
-module.exports = fetchuser;
+module.exports = fetchfaculty;
