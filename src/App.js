@@ -15,6 +15,7 @@ import EmpSignUp from './Components/SignUp/EmpSignUp/EmpSignUp';
 import StudentDashboard from './Components/StudentDashboard/StudentDashboard';
 import FacultyDashboard from './Components/FacultyDashboard/FacultyDashboard';
 import PostingInternship from './Components/PostingInternship/PostingInternship';
+// import PostedInternships from './Components/PostedInternships/PostedInternships';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           <PostingInternship/>
         </Route>
       </Switch>
+        {/* <PostedInternships/> */}
     </Router>
 
   )

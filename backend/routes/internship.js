@@ -19,6 +19,22 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
     }
 })
 
+
+
+
+// ROUTE 1: Get all the internships of a faculty using: GET "/api/internship/fetchallinternships". Login required
+
+router.get('/fetchallinternships', fetchfaculty, async (req, res) => {
+    try {
+        const internships = await PostingInternships.find({ faculty: req.user.id });
+        // const internships = await PostingInternships.find();
+        res.json(internships);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal server error");
+    }
+})
+
 // ROUTE 2: add a new note using : POST "/api/notes/addnote". Login required
 
 router.post('/addnote', fetchuser, [
