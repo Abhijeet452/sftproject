@@ -10,7 +10,7 @@ const fetchfaculty = (req, res, next) => {
 
     try {
         const data = jwt.verify(token, secret);
-        req.user = data.user;
+        req.faculty = data.faculty;
         // console.log(req.user);
         next();
     } catch (error) {

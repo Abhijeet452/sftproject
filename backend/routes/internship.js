@@ -9,10 +9,11 @@ const { body, validationResult } = require('express-validator');
 
 // ROUTE 1: Get all the notes of a user using: GET "/api/notes/fetchallnotes". Login required
 
-router.get('/fetchallnotes', fetchuser, async (req, res) => {
+router.get('/fetchinternships',  async (req, res) => {
     try {
-        const notes = await Note.find({ user: req.user.id });
-        res.json(notes);
+        const internships = await PostingInternships.find();
+        res.json(internships);
+        console.log(internships)
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal server error");
@@ -26,7 +27,7 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
 
 router.get('/fetchallinternships', fetchfaculty, async (req, res) => {
     try {
-        const internships = await PostingInternships.find({ faculty: req.user.id });
+        const internships = await PostingInternships.find({ faculty: req.faculty.id });
         // const internships = await PostingInternships.find();
         res.json(internships);
     } catch (error) {
@@ -74,7 +75,7 @@ router.post('/addinternship', fetchfaculty, [
             return res.status(400).json({ errors: errors.array() });
         }
         const internship = new PostingInternships({
-            jobTitle, description, organizationName, workType, organizationUrl, stipend, skills,duration,experienceRequired,faculty:req.user.id
+            jobTitle, description, organizationName, workType, organizationUrl, stipend, skills,duration,experienceRequired,faculty:req.faculty.id
         })
         const savedInternship = await internship.save();
         console.log(savedInternship);
@@ -123,28 +124,29 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
 
 
 // ROUTE 4: Delete an existing note using : DELETE "/api/notes/deletenote". Login required
-router.delete('/deletenote/:id', fetchuser, async (req, res) => {
+router.delete('/deleteinternship/:id', fetchfaculty, async (req, res) => {
 
     try {
-        let note = await Note.findById(req.params.id)
-        if (!note) {
+
+        let internship = await PostingInternships.findById(req.params.id)
+        if (!internship) {
             return res.status(404).send("Not Found");
         }
 
-        // Allow deletion only if this user owns this note 
-        if (note.user.toString() !== req.user.id) {
+        // Allow deletion only if this user owns this internship 
+        if (internship.faculty.toString() !== req.faculty.id) {
             return res.status(401).send("Not Allowed");
         }
 
-        note = await Note.findByIdAndDelete(req.params.id)
-        res.json({ "Success": "Note has been deleted", note: note });
+        internship = await PostingInternships.findByIdAndDelete(req.params.id)
+        res.json({ "Success": "internship has been deleted", internship: internship });
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal server error");
 
     }
 
-    //find the note to be deleted and delete it
+    //find the internship to be deleted and delete it
 
 
 })

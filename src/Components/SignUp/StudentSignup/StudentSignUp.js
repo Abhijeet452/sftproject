@@ -137,7 +137,7 @@ export default function StudentSignUp(props) {
                             <Grid item xs={12}>
                                 <FormControlLabel
                                     control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                    label="please project jaldi ban jaao ab mazaak nahi ho rha ye"
+                                    label="I agree to the terms and conditions"
                                 />
                             </Grid>
                         </Grid>

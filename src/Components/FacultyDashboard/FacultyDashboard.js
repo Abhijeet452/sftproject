@@ -14,7 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import PostingInternship from '../PostingInternship/PostingInternship';
 import PostedInternships from '../PostedInternships/PostedInternships';
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 
@@ -43,7 +43,7 @@ const FacultyDashboard = (props) => {
             // body: JSON.stringify({title,description, tag})
         });
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         setinternships(json);
     };
 
@@ -67,7 +67,7 @@ const FacultyDashboard = (props) => {
         setMobileOpen(!mobileOpen);
     };
     const drawer = (
-        <div>
+        <div className="d-flex flex-column align-items-center justify-content-center">
             <Toolbar />
             <Divider />
             <List>
@@ -85,6 +85,11 @@ const FacultyDashboard = (props) => {
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
+                <ListItem button key={"Home"} onClick={() => {
+                    history.push('/');
+                }}>
+                    <ListItemText primary={"Home"} />
+                </ListItem>
             </List>
             <Divider />
         </div>
@@ -160,11 +165,11 @@ const FacultyDashboard = (props) => {
                 <Typography variant="h4" Wrap component="div" textAlign="center">
                     Posted Internships
                 </Typography>
-
-
-
+                <h3 className="mx-4 text-center">
+                    {internships.length === 0 && "No posted internships found"}
+                </h3>
                 {internships.map((internship) => {
-                    return <PostedInternships key={internship._id} internship={internship}/>
+                    return <PostedInternships key={internship._id} internship={internship} />
                 })}
             </Box>
         </Box>

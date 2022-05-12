@@ -5,15 +5,15 @@ import style from './Footer.css'
 
 const Footer = () => {
     return (
-        <footer id="footer" className="footer-1" style={{style}}>
+        <footer id="footer" className="footer-1" style={{ style }}>
             <div className="main-footer widgets-dark typo-light">
                 <div className="container">
                     <div className="row">
 
                         <div data-aos="slide-right" data-aos-duration="1300" className="col-xs-12 col-sm-6 col-md-3">
                             <div className="widget subscribe no-box">
-                                <h5 className="widget-title">COMPANY NAME<span></span></h5>
-                                <p>About the company, little discription will goes here.. </p>
+                                <h5 className="widget-title">PrimeInternship<span></span></h5>
+                                <p><strong>PrimeInternship</strong> India's no.1 internship and training platform with 40000+ paid internships in Engineering, MBA, media, law, arts, and other streams.</p>
                             </div>
                         </div>
 
@@ -59,13 +59,11 @@ const Footer = () => {
                             <div className="widget no-box">
                                 <h5 className="widget-title">Contact Us<span></span></h5>
 
-                                <p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
+                                <p><a href="mailto:sabhi0825@gmail.com" title="glorythemes">Abhi Singh</a></p>
                                 <ul className="social-footer2">
-                                    <li className=""><a title="youtube" target="_blank" href="https://bit.ly/3m9avif">
-                                    </a></li>
-                                    <li className=""><a href="https://www.facebook.com/" target="_blank" title="Facebook"></a></li>
-                                    <li className=""><a href="https://twitter.com" target="_blank" title="Twitter"></a></li>
-                                    <li className=""><a title="instagram" target="_blank" href="https://www.instagram.com/"></a></li>
+                                    <li className=""><a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                                    <li className=""><a href="https://twitter.com" target="_blank" title="Twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li className=""><a title="instagram" target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-instagram-square"></i>   </a></li>
                                 </ul>
                             </div>
                         </div>

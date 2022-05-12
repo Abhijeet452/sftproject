@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const secret = "sarthaksamarthsahilabhi";
 const fetchuser = require("../Middleware/fetchuser");
 
-//ROUTE 1:Create a user using: POST "/api/auth/"
+//ROUTE 1:Create a user using: POST "/api/auth/createuser"
 router.post(
   "/createuser",
   [
@@ -55,8 +55,6 @@ router.post(
       console.error(error.message);
       res.status(500).send("Internal server error");
     }
-
-    // console.log(AuthToken);
   }
 );
 
@@ -150,7 +148,7 @@ router.post(
         password: securedPass,
       });
       const data = {
-        user: {
+        faculty: {
           id: faculty.id,
         },
       };
@@ -199,7 +197,7 @@ router.post(
           .json({ success, error: "Please login with correct credentials" });
       }
       const data = {
-        user: {
+        faculty: {
           id: faculty.id,
         },
       };
